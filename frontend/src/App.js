@@ -1,8 +1,11 @@
-
-function App() {
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from './components/Header';
+import Search from './components/Search';
+const App = () =>  {
   return (
     <div>
-      <h1>Images Gallary</h1>
+      <Header title="Images Gallery Header"></Header>
+      <Search/>
     </div>
   );
 }
