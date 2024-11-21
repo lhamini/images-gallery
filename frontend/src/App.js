@@ -2,7 +2,7 @@
 function App() {
   return (
     <div>
-      <h1>Image Gallary</h1>
+      <h1>Images Gallary</h1>
     </div>
   );
 }
