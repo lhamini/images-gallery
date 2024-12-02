@@ -1,7 +1,11 @@
 import requests
 from config import config
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flask_cors import CORS
+from mongo_client import mongo_client
+
+gallery = mongo_client.gallery
+images_collection = gallery.images
 
 
 app = Flask(__name__)
@@ -18,6 +22,25 @@ def new_image():
     )
 
     return response.json()
+
+@app.route("/images", methods=["GET", "POST"])
+def images():
+    if request.method == "GET":
+        ## read images from db
+        images = images_collection.find({})
+        return [image for image in images]
+
+    if request.method == "POST":
+        ## save images to db
+        image = request.get_json()
+        image["_id"] = image.get("id")
+        result = images_collection.insert_one(image)
+        inserted_id = result.inserted_id
+        return {"inserted_id": inserted_id}
+
+
+
+
 
 
 if __name__ == "__main__":
