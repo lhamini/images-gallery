@@ -9,6 +9,10 @@ class BaseConfig(BaseSettings):
 
 class GlobalConfig(BaseConfig):
     UNSPLASH_ACCESS_KEY: Optional[str] = None
+    MONOGO_URL: Optional[str] = "mongo"
+    MONGO_USERNAME: Optional[str] = "root"
+    MONGO_PASSWORD: Optional[str] = ""
+    MONGO_PORT: Optional[int] = 27017
 
 
 config = GlobalConfig()
