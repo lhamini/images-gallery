@@ -24,7 +24,14 @@ const App = () => {
 
     //   })
     //   .catch(err => console.log(err))
-    const res = await axios.get(`${API_URL}/new_image?query=${searchTerm}`);
+    try {
+      const res = await axios.get(`${API_URL}/new_image?query=${searchTerm}`);
+      setImages([{ ...res.data, title: searchTerm }, ...images])
+      
+    } catch (error) {
+      console.log(error);
+      
+    }
     setSearchTerm('');
   }
   const handleDeleteImage = (id) => {
