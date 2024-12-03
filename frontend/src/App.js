@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
 import Header from './components/Header';
 import Search from './components/Search';
 import Welcome from './components/Welcome';
@@ -13,16 +14,17 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [images, setImages] = useState([]);
 
-  const handleSearchSubmit = (e) => {
+  const handleSearchSubmit = async (e) => {
     e.preventDefault();
     console.log(searchTerm);
-    fetch(`${API_URL}/new_image?query=${searchTerm}`)
-      .then(res => res.json())
-      .then(data => {
-        setImages([{ ...data, title: searchTerm }, ...images]);
+    // fetch(`${API_URL}/new_image?query=${searchTerm}`)
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     setImages([{ ...data, title: searchTerm }, ...images]);
 
-      })
-      .catch(err => console.log(err))
+    //   })
+    //   .catch(err => console.log(err))
+    const res = await axios.get(`${API_URL}/new_image?query=${searchTerm}`);
     setSearchTerm('');
   }
   const handleDeleteImage = (id) => {

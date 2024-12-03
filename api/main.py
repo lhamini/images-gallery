@@ -28,7 +28,7 @@ def images():
     if request.method == "GET":
         ## read images from db
         images = images_collection.find({})
-        return [image for image in images]
+        return jsonify([image for image in images])
 
     if request.method == "POST":
         ## save images to db
