@@ -47,7 +47,8 @@ const App = () => {
     }
     setSearchTerm('');
   }
-  const handleDeleteImage = (id) => {
+  const handleDeleteImage = async (id) => {
+    const res = await axios.delete(`${API_URL}/images/${id}`);
     setImages(images.filter((image) => image.id !== id));
   }
   const handleSaveImage = async (id) => {

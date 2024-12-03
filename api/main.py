@@ -38,6 +38,12 @@ def images():
         inserted_id = result.inserted_id
         return {"inserted_id": inserted_id}
 
+@app.route("/images/<image_id>", methods=["DELETE"])
+def delete_image(image_id):
+    if request.method == "DELETE":
+        result = images_collection.delete_one({"_id": image_id})
+        return {"deleted_id": image_id}
+
 
 
 
