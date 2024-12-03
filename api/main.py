@@ -42,6 +42,8 @@ def images():
 def delete_image(image_id):
     if request.method == "DELETE":
         result = images_collection.delete_one({"_id": image_id})
+        if result and not result.deleted_count:
+            return {"error": "image not found"}, 404
         return {"deleted_id": image_id}
 
 
