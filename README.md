@@ -4,6 +4,8 @@ Welcome to the Images Gallery project! This project is a simple web application 
 
 This project is based on the course [Full Stack Web Development Bootcamp with React and Pythonstass](https://example.com/course-link).
 
+![Project UI](frontend_example.png)
+
 
 
 
