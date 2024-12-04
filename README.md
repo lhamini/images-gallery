@@ -1,4 +1,4 @@
-# Images Gallery
+# Images Gallery App
 
 Welcome to the Images Gallery project! This project is a simple web application that allows users to view and manage a collection of images.
 
